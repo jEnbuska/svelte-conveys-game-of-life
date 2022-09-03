@@ -1,18 +1,20 @@
 <script lang="ts">
-    import type {GridCell} from "./types";
-    export let cell: GridCell
-    export let onCellSelected: (cell: GridCell) => void
+    export let x: number;
+
+    export let y: number;
+    export let live: boolean;
+    export let onCellSelected: (cell) => void
     const onMouseSelect = (e: MouseEvent) => {
         if (!e.buttons) return;
-        if (cell.live) return;
-        onCellSelected(cell)
+        if (live) return;
+        onCellSelected({x, y, live})
     }
 </script>
 <svelte:options immutable/>
 <span
     class="cell"
-    class:live={cell.live}
-    class:dead={!cell.live}
+    class:live={live}
+    class:dead={!live}
     on:click={onMouseSelect}
     on:mousemove={onMouseSelect}
     tabindex="0"
@@ -38,14 +40,16 @@
         content: '';
         display: inline-block;
         background: black;
-        transition: transform var(--tick) ease-in-out, border-radius var(--tick) ease-in-out;
+        transition: transform var(--tick) ease-in-out, border-radius var(--tick) ease-in-out, opacity var(--tick) ease-in-out;
     }
     .dead:after {
         transform: scale(0);
         border-radius: 50%;
+        opacity: 0;
     }
     .live:after {
         transform: scale(1);
-        border-radius: 0;
+        border-radius: 10%;
+        opacity: 1;
     }
 </style>
