@@ -1,9 +1,6 @@
-type Coordinate<T extends Record<string, any> = Record<string, unknown>> = T & {
-    x: number;
-    y: number
-}
+import type { Coordinates, GridCell } from "./types";
 
-export function getSurroundingCoordinates({x, y}: Coordinate, grid: unknown[][]) {
+export function getSurroundingCoordinates({x, y}: Coordinates, grid: unknown[][]) {
     const maxY = grid.length
     const maxX = grid[0].length
     const left = x === 0 ? maxX - 1 : x - 1
@@ -27,18 +24,18 @@ export function replaceByIndex<T>(array: T[], arg: {value: T, index: number}) {
     ]
 }
 
-const countLiveNeighbours = ({x, y}: Coordinate, grid: boolean[][]) => {
+const countLiveNeighbours = ({x, y}: Coordinates, grid: boolean[][]) => {
     return getSurroundingCoordinates({x, y}, grid).filter(({x, y}) => grid[y][x]).length
 }
 
 
-export const shouldCellDie = ({x, y, live}: Coordinate<{ live: boolean }>, grid: boolean[][]) => {
+export const shouldCellDie = ({x, y, live}: GridCell, grid: boolean[][]) => {
     if (!live) return false;
     const liveNeighbours = countLiveNeighbours({x, y}, grid)
     return liveNeighbours < 2 || liveNeighbours > 3
 }
 
-export const shouldCellComeToLife = ({x, y, live}: Coordinate<{ live: boolean }>, grid: boolean[][]) => {
+export const shouldCellComeToLife = ({x, y, live}: GridCell, grid: boolean[][]) => {
     if (live) return false;
     const liveNeighbours = countLiveNeighbours({x, y}, grid)
     return liveNeighbours === 3

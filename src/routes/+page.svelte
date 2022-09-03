@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Cell from './Cell.svelte';
 	import {range, replaceByIndex, shouldCellComeToLife, shouldCellDie} from "../lib/utils";
 	import Row from "./Row.svelte";
+	import { GridCell } from "../lib/types";
 
 	let width = 100;
 	let height = 100;
@@ -18,12 +18,12 @@
 		grid = range(maxY).map(() => range(maxX).map(() => Math.random() < (initialFill / 100)))
 	}
 
-	const setCellLive = ({y,x, live}) => {
+	const setCellLive = ({y,x, live}: GridCell) => {
 		const row = replaceByIndex(grid[y], {index: x, value: live});
 		grid = replaceByIndex(grid, {index: y, value: row});
 	};
 
-	const onCellSelected = (cell) => {
+	const onCellSelected = (cell: GridCell) => {
 		setCellLive({...cell, live: true});
 	};
 
