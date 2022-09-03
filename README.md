@@ -1,5 +1,7 @@
 Conveys `Game of Life` implemented using Svelte Kit
 
+<img width="1728" alt="Screenshot 2022-09-03 at 19 31 04" src="https://user-images.githubusercontent.com/11061511/188280034-117dc668-2118-4993-8da7-3a80cfda4131.png">
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
