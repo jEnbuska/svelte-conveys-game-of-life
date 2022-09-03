@@ -2,7 +2,7 @@ export function getSurroundingCoordinates({x, y, maxX, maxY}) {
     const left = x === 0 ? maxX - 1 : x - 1
     const right = x === maxX - 1 ? 0 : x + 1
     const top = y === 0 ? maxY - 1 : y - 1
-    const bottom = y === maxY - 1 ? 0 : y + 1
+    const bottom = y >= maxY - 1 ? 0 : y + 1
     const coords = [
         {x: left, y: top},      {x, y: top},    {x: right, y: top},
         {x: left, y},                           {x: right, y},
