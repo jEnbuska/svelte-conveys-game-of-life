@@ -1,6 +1,6 @@
 Conveys `Game of Life` implemented using Svelte Kit
 
-[Demo page](https://svelte-conveys-game-of-life-ecy5cj9ai-joonaenb.vercel.app/)
+[Demo page](https://svelte-conveys-game-of-life.vercel.app/)
 
 <img width="1728" alt="Screenshot 2022-09-03 at 19 31 04" src="https://user-images.githubusercontent.com/11061511/188280034-117dc668-2118-4993-8da7-3a80cfda4131.png">
 
