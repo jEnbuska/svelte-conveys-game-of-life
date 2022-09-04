@@ -4,9 +4,9 @@
 
 	let width = 100;
 	let height = 100;
-	let tick = 200;
-	let initialFill = 13
-	let maxX = 10
+	let tick = 500;
+	let initialFill = 13;
+	let maxX = 10;
 
 	$: cellSizePx = width / maxX;
 	$: maxY = Math.floor(height / cellSizePx);
