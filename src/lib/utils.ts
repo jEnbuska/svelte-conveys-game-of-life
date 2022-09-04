@@ -1,6 +1,4 @@
-import type { Coordinates, GridCell } from "./types";
-
-export function getSurroundingCoordinates({x, y}: Coordinates, grid: unknown[][]) {
+export function getSurroundingCoordinates({x, y}: CellCoordinates, grid: unknown[][]) {
     const maxY = grid.length
     const maxX = grid[0].length
     const left = x === 0 ? maxX - 1 : x - 1

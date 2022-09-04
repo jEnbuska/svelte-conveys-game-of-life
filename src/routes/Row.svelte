@@ -1,10 +1,9 @@
 <script lang="ts">
     import Cell from "./Cell.svelte";
-    import { Coordinates } from "../lib/types";
 
     export let row: boolean[] = []
     export let y: number;
-    export let onCellSelected: (coordinates: Coordinates) => unknown;
+    export let onCellSelected: (coordinates) => unknown;
 
 </script>
 

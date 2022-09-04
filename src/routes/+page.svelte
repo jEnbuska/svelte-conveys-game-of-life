@@ -1,7 +1,6 @@
 <script lang="ts">
 	import {range, replaceByIndex, shouldCellComeToLife, shouldCellDie} from "../lib/utils";
 	import Row from "./Row.svelte";
-	import { GridCell } from "../lib/types";
 
 	let width = 100;
 	let height = 100;

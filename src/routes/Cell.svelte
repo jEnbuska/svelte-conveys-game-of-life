@@ -1,9 +1,9 @@
 <script lang="ts">
     export let x: number;
-
     export let y: number;
     export let live: boolean;
-    export let onCellSelected: (cell) => void
+    export let onCellSelected: (cell: GridCell) => void
+
     const onMouseSelect = (e: MouseEvent) => {
         if (!e.buttons) return;
         if (live) return;
@@ -40,15 +40,18 @@
         content: '';
         display: inline-block;
         background: black;
-        transition: transform var(--tick) ease-in-out, border-radius var(--tick) ease-in-out, opacity var(--tick) ease-in-out;
+        transition:
+                scale var(--tick) ease-in-out,
+                border-radius var(--tick) ease-in-out,
+                opacity var(--tick) ease-in-out;
     }
     .dead:after {
-        transform: scale(0);
+        scale: 0;
         border-radius: 50%;
         opacity: 0;
     }
     .live:after {
-        transform: scale(1);
+        scale: 1;
         border-radius: 10%;
         opacity: 1;
     }

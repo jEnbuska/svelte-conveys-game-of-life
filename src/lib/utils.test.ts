@@ -1,6 +1,6 @@
 import {getSurroundingCoordinates} from "./utils";
 
-const visualNeighboursInGrid = (grid: any[][], neighbours: Array<{x: number, y: number}>) => {
+const visualNeighboursInGrid = (grid: any[][], neighbours: Array<Cell>) => {
     return grid.map((row, y) => {
         return row.map((cell, x) => {
             return neighbours.some(({x: nx, y: ny}) => nx === x && ny === y) ? 1 : 0;
