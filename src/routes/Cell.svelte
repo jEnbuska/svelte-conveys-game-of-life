@@ -5,7 +5,7 @@
     export let onCellSelected: (cell: GridCell) => void
 
     const onMouseSelect = (e: MouseEvent) => {
-        if (!e.buttons) return;
+        if (!e.buttons && e.type !== 'click') return;
         if (live) return;
         onCellSelected({x, y, live})
     }
