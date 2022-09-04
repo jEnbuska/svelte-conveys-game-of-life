@@ -3,10 +3,10 @@
 
     export let row: boolean[] = []
     export let y: number;
-    export let onCellSelected: (coordinates) => unknown;
+    export let onCellSelected: (coordinates: GridCell) => unknown;
 
 </script>
-
+<svelte:options immutable/>
 <div class="row">
     <Cell live={row[row.length-1]} x={row.length-1} {y} {onCellSelected} />
     {#each row as live, x (x)}
