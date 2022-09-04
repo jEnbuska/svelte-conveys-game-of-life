@@ -9,6 +9,11 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
+	},
+	resolve: {
+		alias: {
+			'node-fetch': 'isomorphic-fetch',
+		},
 	}
 };
 
